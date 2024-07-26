@@ -46,7 +46,7 @@ const {
   DeletesubServicedata,
   DeleteBySubServiceId,
   getsubServiceDataByServiceId
-} = require('../controllers/subServiceController');
+} = require('../Controllers/SubServiceController');
 
 const {
   CareerData,
