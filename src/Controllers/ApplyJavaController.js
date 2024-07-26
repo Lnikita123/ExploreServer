@@ -18,7 +18,7 @@ const applyJavaData = async (req, res) => {
         const mailOptions = {
             from: "palnesto886@gmail.com",
             to: "info@palnesto.biz",
-            subject: "Submission for ExploreIt",
+            subject: "Submission for ExploreIt job applying",
             text: `
         Name: ${Name}
         LastName: ${LastName}

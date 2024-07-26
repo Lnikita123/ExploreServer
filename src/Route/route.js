@@ -67,7 +67,8 @@ const {
 } = require("../Controllers/BlogController")
 const {
   userEmailData
-} = require("../Controllers/userEmailController")
+} = require("../Controllers/userEmailController");
+const { aboutformData } = require("../Controllers/AboutformController")
 const { ClientRoles } = require("../clientRole");
 const currentUser = require("../middleware/currentUser");
 const auth = require("../middleware/auth");
@@ -97,7 +98,10 @@ router.delete("/v1/DeleteapplyJavaData", DeleteapplyJavaData)
 
 
 //userEmail
-router.post("/V1/userEmail", userEmailData)
+router.post("/V1/userEmail", userEmailData);
+
+//Aboutform 
+router.post("/V1/aboutForm", aboutformData)
 //login
 // router.post("/v1/create", createUser)
 router.post("/v1/userLogin", userLogin);

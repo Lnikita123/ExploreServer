@@ -1,27 +1,28 @@
-const userEmailModel = require("../Models/userEmailModel");
+const AboutModel = require("../Models/AboutformModel");
 const nodemailer = require("nodemailer");
 
-
-const userEmailData = async (req, res) => {
+const aboutformData = async (req, res) => {
     try {
-        const { _id, Email } = req.body;
+        const { Name, Email, Phone, Message } = req.body;
 
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
                 user: "palnesto886@gmail.com",
-                pass: "pvhq gkjp sihd qdxn",
+                pass: "pvhq gkjp sihd qdxn", // Consider using environment variables for sensitive information
             },
         });
 
         const mailOptions = {
             from: "palnesto886@gmail.com",
             to: "info@palnesto.biz",
-            subject: "Submission for ExploreIt Footer Email",
+            subject: "Submission for ExploreIt contactInfo",
             text: `
-        Email: ${Email}
-       
-      `,
+                Name: ${Name}
+                Email: ${Email}
+                Phone: ${Phone}
+                Message: ${Message}
+            `,
         };
 
         await new Promise((resolve, reject) => {
@@ -34,7 +35,7 @@ const userEmailData = async (req, res) => {
             });
         });
 
-        const datacreate = await userEmailModel.create({ Email });
+        const datacreate = await AboutModel.create({ Name, Email, Phone, Message });
         return res.status(201).send({
             status: true,
             msg: "Data created successfully, and email sent",
@@ -46,11 +47,6 @@ const userEmailData = async (req, res) => {
     }
 };
 
-
-
-
-
 module.exports = {
-    userEmailData,
-
+    aboutformData,
 };

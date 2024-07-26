@@ -17,7 +17,7 @@ const userformData = async (req, res) => {
     const mailOptions = {
       from: "palnesto886@gmail.com",
       to: "info@palnesto.biz",
-      subject: "Submission for ExploreIt",
+      subject: "Submission for ExploreIt Request for Proposal",
       text: `
         Name: ${Name}
         Email: ${Email}
